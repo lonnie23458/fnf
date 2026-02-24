@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friday Night Funkin' Interactive Game</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #282c34; color: white; text-align: center; }
+        #game { border: 1px solid #fff; width: 800px; height: 600px; margin: 20px auto; position: relative; }
+        #score { font-size: 24px; }
+        .mod-selection { margin: 20px; }
+        button { margin: 5px; padding: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Friday Night Funkin' Game</h1>
+    <div class="mod-selection">
+        <button onclick="selectMod('Cropshop Mads')">Cropshop Mads</button>
+        <button onclick="selectMod('FIN Style')">FIN Style</button>
+        <button onclick="selectMod('Neon Nights')">Neon Nights</button>
+        <button onclick="selectMod('Classic Mode')">Classic Mode</button>
+        <button onclick="selectMod('Cyber Beats')">Cyber Beats</button>
+    </div>
+    <div id="game"></div>
+    <div id="score">Score: 0</div>
+    <script>
+        let score = 0;
+        function selectMod(mod) {
+            alert('Selected Mod: ' + mod);
+            // Initialize the selected mod here
+        }
+        // Game mechanics will go here, including note hitting logic
+        window.addEventListener('keydown', function(event) {
+            if (['A', 'S', 'D', 'F'].indexOf(event.key) > -1) {
+                hitNote(event.key);
+            }
+        });
+        function hitNote(key) {
+            score += 10;  // Increment score
+            document.getElementById('score').innerText = 'Score: ' + score;
+            // Add note hitting visual feedback
+        }
+    </script>
+</body>
+</html>
